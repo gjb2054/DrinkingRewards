@@ -9,6 +9,9 @@ class DatabaseHome:
         self.workout_post = self.client.JimApp.workout_post
         self.tip_post = self.client.JimApp.tip_post
 
+    def add_user(self,username):
+        pass
+
     def add_user(self, user):
         userInfo = {
             "username": user.username,
@@ -24,6 +27,9 @@ class DatabaseHome:
     def find_usernames(self):
         user = self.userdb.find({}, {"username": 1, "_id": 0})
         return user
+
+    def edit_user(self, user, rating, ratings, experience, position, level, workout_type):
+        self.userdb.updateone({"username":user},{"$set":{"rating":rating,"ratings":ratings,"experience":experience,"position":position,"level":level,"workout_type":workout_type}})
 
     def find_user(self, username):
         user = self.userdb.find({"username":username})
@@ -68,7 +74,7 @@ class DatabaseHome:
         self.tip_post.insert_one(postInfo)
 
     def get_spec_tips(self, param):
-        posts = self.tip_post.find({param}).sort("rating", DESCENDING)
+        posts = self.tip_post.find({"option":param}).sort("rating", DESCENDING)
         return posts
 
     def get_all_tip_posts(self):
