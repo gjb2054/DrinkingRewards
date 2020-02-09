@@ -27,11 +27,7 @@ def home():
 
 @app.route('/MyProfile')
 def my_profile():
-    databaseHome = DatabaseHome()
-    user = User('a', 'b', [5,4,3], 'd', 'e', 'f')
-    databaseHome.add_user(user)
-    homiePost = HomiePost("hello", user.username)
-    databaseHome.add_homie_post(homiePost)
+    user = session['user']
     return render_template('profile.html', User=user)
 
 
