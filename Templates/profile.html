@@ -2,9 +2,37 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Profile Page</title>
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+    <link rel="stylesheet" type="text/css" href="Static/profile.css">
 </head>
 <body>
+    <div class="wrapper">
+        <div class="left">
 
+            <h4> {{ User.username }}</h4>
+            <p>{{ User.experience }}</p>
+        </div>
+        <div class="right">
+            <div class="info">
+                <h3>Information</h3>
+                <div class="info_data">
+                    <div class="data">
+                        <h4>Position</h4>
+                        <p>{{ User.position }}</p>
+                    </div>
+                    <div class="data">
+                        <h4>Level</h4>
+                        <p>{{ User.level }}</p>
+                    </div>
+                    <div class="data">
+                        <h4>Rating</h4>
+                        <p>{{ User.rating }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
 </body>
 </html>
