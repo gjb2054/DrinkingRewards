@@ -5,7 +5,11 @@
     <title>Title</title>
 </head>
 <body>
-
+    <div>
+        {% if err_msg %}
+            <p>{{ err_msg }}</p>
+        {%  endif %}
+    </div>
     <div>
        <form action="" method="post">
            <input type="text" placeholder="username" name="username" value="{{ request.form.username }}">
