@@ -1,5 +1,7 @@
 from flask import Flask, render_template
 from user import User
+from database_home import DatabaseHome
+from homie_post import HomiePost
 
 app = Flask(__name__)
 
@@ -11,8 +13,11 @@ def hello_world():
 
 @app.route('/MyProfile')
 def my_profile():
+    databaseHome = DatabaseHome()
     user = User('a', 'b', [5,4,3], 'd', 'e', 'f')
-    print(user)
+    databaseHome.add_user(user)
+    homiePost = HomiePost("hello", user.username)
+    databaseHome.add_homie_post(homiePost)
     return render_template('profile.html', User=user)
 
 
