@@ -6,7 +6,7 @@ app.secret_key = 'workout bros'
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    return render_template('index.html')
+    return render_template('index.html', message="Welcome to Gym Homies, Homie")
 
 
 @app.route('/MyProfile')
@@ -36,7 +36,7 @@ def login():
         username = request.form['username']
         session['user'] = username
 
-        return redirect(url_for('home'))
+        return render_template('index.html', message="You signed in as: ", username=username)
     return render_template("login.html")
 
 
@@ -45,9 +45,12 @@ def sign_out():
     if request.method == 'POST':
         if 'user' in session:
             session.pop('user')
+        else:
+            return render_template("index.html", message="You were not signed in!")
 
-        return redirect(url_for("home"))
+        return render_template("index.html", message="You signed out!")
     return render_template("signout.html")
+
 
 if __name__ == '__main__':
     app.run()
