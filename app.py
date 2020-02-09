@@ -82,8 +82,8 @@ def login():
         if DB.add_username(username):
             session['user'] = username
             return redirect(url_for('home'))
-        else:#hi
-            return render_template("login.html")
+        else:
+            return render_template("login.html", err_msg="Login Failed, Please Try Again.")
     return render_template("login.html")
 
 
