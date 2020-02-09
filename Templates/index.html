@@ -17,56 +17,42 @@
         <div id = "top_menu_sect">
             <!-- These will be the buttons used to go to each page of the website -->
             <div id = "menu_button">
-                <p><a href = "{{ url_for('tips') }}"/>Tips</p>
+                <p><a href = "{{ url_for('tips') }}">Tips</a></p>
             </div>
             <div id = "menu_button">
-                <p><a href = "{{ url_for('workouts') }}"/>Workouts</p>
+                <p><a href = "{{ url_for('workouts') }}">Workouts</a></p>
             </div>
             <div id = "menu_button">
-                <p><a href = "{{ url_for('about') }}"/>About</p>
+                <p><a href = "{{ url_for('about') }}">About</a></p>
             </div>
             <div id = "menu_button">
-                <p><a href = "{{ url_for('my_profile') }}"/>My Profile</p>
+                <p><a href = "{{ url_for('my_profile') }}">My Profile</a></p>
             </div>
             <div id = "menu_button">
-                <p><a href = "{{ url_for('login') }}"/>Login</p>
+                <p><a href = "{{ url_for('sign_out') }}">Sign Out</a></p>
             </div>
             <div id = "menu_button">
-                <p><a href = "{{ url_for('sign_out') }}"/>Sign Out</p>
+                <p><a href = "{{ url_for('login') }}">Login</a></p>
             </div>
         </div> <!-- End of top_menu_sect -->
     </div><!-- End of menu -->
-    <div>
+    <div id = "greeting">
         {% if message %}
             {% if username %}
-                <h1>{{ message }} {{ username }}</h1>
+                <h2>{{ message }} {{ username }}</h2>
             {% else %}
-                <h1>{{ message }}</h1>
+                <h2>{{ message }}</h2>
             {% endif %}
         {% endif %}
     </div>
-    <div id = "container_main">
-        <div id = "information_main_1">
-            <img src = "">
-            <p id = "rating"></p>
-            <p id = "level"></p>
-            <p id = "type">test</p>
-            <p id = "time"></p>
-        </div>
-        <div id = "information_main_2">
-            <img src = "">
-            <p id = "rating"></p>
-            <p id = "level"></p>
-            <p id = "type">test</p>
-            <p id = "time"></p>
-        </div>
-        <div id = "information_main_2">
-            <img src = "">
-            <p id = "rating"></p>
-            <p id = "level"></p>
-            <p id = "type">test</p>
-            <p id = "time"></p>
-        </div>
+
+    <div>
+        <h4>Request a gym homie!</h4>
+        <form method="post" action="">
+           <textarea placeholder="Enter a message for the homies" rows="4" cols="50" name="message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
     </div>
+
 </body>
 </html>
