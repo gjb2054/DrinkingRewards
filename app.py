@@ -1,4 +1,5 @@
 from flask import Flask, render_template
+from user import User
 
 app = Flask(__name__)
 
@@ -10,7 +11,9 @@ def hello_world():
 
 @app.route('/MyProfile')
 def my_profile():
-    return render_template('profile.html')
+    user = User('a', 'b', 'c','d', 'e','f').to_json()
+    print(user)
+    return render_template('profile.html', username="user", rating="1", experience="1",level="1",position="2")
 
 
 @app.route('/tips')

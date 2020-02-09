@@ -5,13 +5,13 @@ class User:
     def __init__(self, level, username, ratings, workout_type, position, experience):
         self.level = level
         self.ratings = ratings
-        self.rating = 0
+        self.rating = "0"
         count = 0
-        for r in ratings:
-            self.rating += r
-            count += 1
-        if count != 0:
-            self.rating = self.rating/count
+        #for r in ratings:
+            #self.rating += r
+            #count += 1
+        #if count != 0:
+            #self.rating = self.rating/count
         self.username = username
         self.workout_type = workout_type
         self.position = position
