@@ -9,6 +9,32 @@ class DatabaseHome:
         self.workout_post = self.client.JimApp.workout_post
         self.tip_post = self.client.JimApp.tip_post
 
+    def clean_b(self):
+        self.userdb.delete_many({"username":"b"})
+
+    def add_username(self, username):
+        if self.userdb.find({"username":username, "loggedOn":True}).count() > 0:
+            return False
+        else:
+            if self.userdb.find({"username":username}).count() >0:
+                self.userdb.update_one({"username":username}, {"$set":{"loggedOn":True}})
+            else:
+                userInfo = {
+                    "username": username,
+                    "rating": "0.00",
+                    "ratings": [],
+                    "experience": "0",
+                    "position": "Casual",
+                    "level": "Beginner",
+                    "workout_type": "Cardio",
+                    "loggedOn":True
+                }
+                self.userdb.insert_one(userInfo)
+            return True
+
+    def sign_out(self, username):
+        self.userdb.update_one({"username":username},{"$set":{"loggedOn":False}})
+
     def add_user(self, user):
         userInfo = {
             "username": user.username,
@@ -25,8 +51,11 @@ class DatabaseHome:
         user = self.userdb.find({}, {"username": 1, "_id": 0})
         return user
 
-    def find_user(self, username):
-        user = self.userdb.find({"username":username})
+    def edit_user(self, user, rating, ratings, experience, position, level, workout_type):
+        self.userdb.updateone({"username":user},{"$set":{"rating":rating,"ratings":ratings,"experience":experience,"position":position,"level":level,"workout_type":workout_type}})
+
+    def logout_user(self, username):
+        user = self.userdb.updateone({"username": username}, {"$set":{"loggedOn":False}})
 
     def add_homie_post(self, homie_post):
         postInfo = {
@@ -68,7 +97,7 @@ class DatabaseHome:
         self.tip_post.insert_one(postInfo)
 
     def get_spec_tips(self, param):
-        posts = self.tip_post.find({param}).sort("rating", DESCENDING)
+        posts = self.tip_post.find({"option":param}).sort("rating", DESCENDING)
         return posts
 
     def get_all_tip_posts(self):
