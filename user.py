@@ -12,16 +12,13 @@ class User:
             count += 1
         if count != 0:
             self.rating = self.rating/count
-
         self.username = username
         self.workout_type = workout_type
         self.position = position
         self.experience = experience
 
-
     def change_workout(self, workout):
         self.workout_type = workout
-
 
     def get_rated(self, rating):
         self.ratings.add(rating)
@@ -31,3 +28,12 @@ class User:
             rate += r
             count += 1
         self.rating = rate/count
+
+    def set_username(self, username):
+        self.username = username
+
+    def set_position(self, position):
+        self.position = position
+
+    def set_experience(self, experience):
+        self.experience = experience
