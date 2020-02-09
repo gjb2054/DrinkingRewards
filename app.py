@@ -25,13 +25,15 @@ def home():
     return render_template('index.html', message="Welcome to Gym Homies, Homie", homieList=homie_lst)
 
 
-@app.route('/MyProfile')
+@app.route('/MyProfile', methods=['GET', 'POST'])
 def my_profile():
-    databaseHome = DatabaseHome()
-    user = User('a', 'b', [5,4,3], 'd', 'e', 'f')
-    databaseHome.add_user(user)
-    homiePost = HomiePost("hello", user.username)
-    databaseHome.add_homie_post(homiePost)
+
+
+    name = session['user']
+
+    user = DB.find_user(name)
+
+
     return render_template('profile.html', User=user)
 
 
@@ -42,7 +44,6 @@ def tips():
         tip = request.form['tip']
         option = request.form['options']
         user = session['user']
-        print
         tip_entry = TipPost(tip, user, [0], option)
 
         DB.add_tip_post(tip_entry)
