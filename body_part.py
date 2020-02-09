@@ -9,4 +9,6 @@ class BodyPart(Enum):
     triceps = 4
     legs = 5
     forearms = 6
-    gluts = 7
+    glutes = 7
+    calves = 8
+
