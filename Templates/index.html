@@ -7,6 +7,8 @@
 </head>
 <body>
 
+    <div class="bg-image"></div>
+
     <div id = "logo">
         <h2>Gym Homies</h2>
         <h2>Testing</h2>
@@ -46,15 +48,19 @@
         {% endif %}
     </div>
 
-    <div>
+    <div id = "homie_main_container">
         {% if homieList %}
             {% for homies in homieList %}
-                <p>user= {{ homies.username }} msg={{ homies.post_str }} date={{ homies.postdate }}</p>
+                <div id = "inner_homie">
+                    <p id = "homie_info">user: {{ homies.username }}</p>
+                    <p id = "homie_info">msg:{{ homies.post_str }}</p>
+                    <p id = "homie_info">Body Part{{ homies.body_part }}</p>
+                </div>
             {% endfor %}
         {% endif %}
     </div>
 
-    <div>
+    <div id = "requesting">
         <h4>Request a gym homie!</h4>
         <form method="post" action="">
            <textarea placeholder="Enter a message for the homies" rows="4" cols="50" name="message"></textarea>
