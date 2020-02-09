@@ -1,56 +1,79 @@
-:root {
-  --gutter: 20px;
-}
-.app {
-  padding: var(--gutter) 0;
-  display: grid;
-  grid-gap: var(--gutter) 0;
-  grid-template-columns: var(--gutter) 1fr var(--gutter);
-  align-content: start;
+* {
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
 }
 
-.app > * {
-  grid-column: 2 / -2;
+body {
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-.app > .full {
-  grid-column: 1 / -1;
+/* Float four columns side by side */
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px 20px;
+
 }
 
-.hs {
-  display: grid;
-  grid-gap: calc(var(--gutter) / 2);
-  grid-template-columns: 10px;
-  grid-template-rows: minmax(150px, 1fr);
-  grid-auto-flow: column;
-  grid-auto-columns: calc(50% - var(--gutter) * 2);
-
-  overflow-x: scroll;
-  scroll-snap-type: x proximity;
-  padding-bottom: calc(.75 * var(--gutter));
-  margin-bottom: calc(-.25 * var(--gutter));
+/* Remove extra left and right margins, due to padding */
+.row {
+  margin: 0 -5px;
+  padding-top: 50px;
 }
 
-.hs:before,
-.hs:after {
-  content: '';
-  width: 10px;
-}
-.hs>li,
-.item {
-  scroll-snap-align: center;
-  padding: calc(var(--gutter) / 2 * 1.5);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
-  border-radius: 8px;
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
 
+/* Style the counter cards */
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 60px;
+  margin-top: 10px;
+  text-align: center;
+  color: #ffffff;
+  background: linear-gradient(to right, #01a9ac, #01dbdf);
+}
 
+#top_menu_sect{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row-reverse;
+}
+#menu_button{
+    margin-right: 10%;
+}
+#menu_button p{
+    font-size: 150%;
+}
 
+/* COLORS FOR THE PAGES */
 
+.menu{
+    background: #C4C4C4;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+}
 
+#menu_button a:visited{
+    color: black;
+}
+#menu_button a:link{
+    text-decoration: none;
+}
 
+.top{
+
+}
