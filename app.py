@@ -11,9 +11,9 @@ def hello_world():
 
 @app.route('/MyProfile')
 def my_profile():
-    user = User('a', 'b', 'c','d', 'e','f').to_json()
+    user = User('a', 'b', [5,4,3], 'd', 'e', 'f')
     print(user)
-    return render_template('profile.html', username="user", rating="1", experience="1",level="1",position="2")
+    return render_template('profile.html', User=user)
 
 
 @app.route('/tips')
