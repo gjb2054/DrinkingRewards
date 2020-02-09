@@ -2,9 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Gym Homies</title>
+    <link rel="stylesheet" type="text/css" href="Static/style.css">
 </head>
 <body>
-    <h1>This is a header</h1>
+
+    <div id = "logo">
+        <h2>Gym Homies</h2>
+    </div>
+
+    <div id = "menu" class = "menu">
+        <!-- Could create a logo for the website, but for now we can just use text -->
+        <div id = "top_menu_sect" class = "top_menu_sect">
+            <!-- These will be the buttons used to go to each page of the website -->
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('tips') }}"/>Tips</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('workouts') }}"/>Workouts</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('about') }}"/>About</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('my_profile') }}"/>My Profile</p>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
