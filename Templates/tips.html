@@ -40,6 +40,14 @@
     </div> <!-- end of left_side -->
 
     <div>
+        {% if tips %}
+            {% for tip in tips %}
+                <p>Tips</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
         <h1>Add a tip!</h1>
         <form method="POST">
             <textarea placeholder="Enter tip!" name="tip"></textarea>

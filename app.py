@@ -19,7 +19,10 @@ def home():
         homie_post = HomiePost(homie_msg, user)
 
         DB.add_homie_post(homie_post)
-    return render_template('index.html', message="Welcome to Gym Homies, Homie")
+
+    homie_lst = DB.get_sorted_homie_post()
+
+    return render_template('index.html', message="Welcome to Gym Homies, Homie", homieList=homie_lst)
 
 
 @app.route('/MyProfile')
@@ -44,8 +47,8 @@ def tips():
 
         DB.add_tip_post(tip_entry)
 
-
-    return render_template('tips.html')
+    tips_lst = DB.get_all_tip_posts()
+    return render_template('tips.html', tips=tips_lst)
 
 
 @app.route('/workouts')
