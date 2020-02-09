@@ -22,8 +22,11 @@ class DatabaseHome:
         self.userdb.insert_one(userInfo)
 
     def find_usernames(self):
-        usernames = self.userdb.find({}, {"username": 1, "_id": 0})
-        return usernames
+        user = self.userdb.find({}, {"username": 1, "_id": 0})
+        return user
+
+    def find_user(self, username):
+        user = self.userdb.find({"username":username})
 
     def add_homie_post(self, homie_post):
         postInfo = {
@@ -39,7 +42,6 @@ class DatabaseHome:
 
     def add_workout_post(self, workout_post):
         postInfo = {
-            "username": workout_post.username,
             "post_str": workout_post.post_str,
             "body_part": workout_post.body_part,
             "ratings": workout_post.ratings,
@@ -48,7 +50,7 @@ class DatabaseHome:
         self.workout_post.insert_one(postInfo)
 
     def get_body_workout_post(self, body_part):
-        posts = self.workout_post.find({body_part}).sort("rating", DESCENDING)
+        posts = self.workout_post.find({body_part})
         return posts
 
     def get_all_body_workout_post(self):
