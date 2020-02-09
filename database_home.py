@@ -51,14 +51,14 @@ class DatabaseHome:
         user = self.userdb.find({}, {"username": 1, "_id": 0})
         return user
 
-    def find_user(self,username):
-        return self.userdb.find({"username":username})
+    def find_user(self, username):
+        return self.userdb.find_one({"username": username})
 
     def edit_user(self, user, rating, ratings, experience, position, level, workout_type):
-        self.userdb.updateone({"username":user},{"$set":{"rating":rating,"ratings":ratings,"experience":experience,"position":position,"level":level,"workout_type":workout_type}})
+        self.userdb.update_one({"username":user},{"$set":{"rating":rating,"ratings":ratings,"experience":experience,"position":position,"level":level,"workout_type":workout_type}})
 
     def logout_user(self, username):
-        user = self.userdb.updateone({"username": username}, {"$set":{"loggedOn":False}})
+        user = self.userdb.update_one({"username": username}, {"$set":{"loggedOn":False}})
 
     def add_homie_post(self, homie_post):
         postInfo = {
