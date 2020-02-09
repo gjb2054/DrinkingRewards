@@ -67,6 +67,10 @@ class DatabaseHome:
         }
         self.tip_post.insert_one(postInfo)
 
+    def get_spec_tips(self, param):
+        posts = self.tip_post.find({param}).sort("rating", DESCENDING)
+        return posts
+
     def get_all_tip_posts(self):
         posts = self.tip_post.find({}).sort("ratings", DESCENDING)
         return posts
