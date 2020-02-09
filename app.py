@@ -1,8 +1,8 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 from user import User
 from database_home import DatabaseHome
-from homie_post import HomiePost
 from tip_post import TipPost
+from homie_post import HomiePost
 
 app = Flask(__name__)
 app.secret_key = 'workout bros'
@@ -12,6 +12,13 @@ DB = DatabaseHome()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    if request.method == 'POST':
+        user = session['user']
+        homie_msg = request.form['message']
+
+        homie_post = HomiePost(homie_msg, user)
+
+        DB.add_homie_post(homie_post)
     return render_template('index.html', message="Welcome to Gym Homies, Homie")
 
 
@@ -41,7 +48,7 @@ def tips():
     return render_template('tips.html')
 
 
-@app.route('/workouts', methods=['GET', 'POST'])
+@app.route('/workouts')
 def workouts():
     return render_template('workouts.html')
 
