@@ -22,6 +22,7 @@ def home():
         DB.add_homie_post(homie_post)
 
     homie_lst = DB.get_sorted_homie_post()
+    user =""
 
     if 'user' in session:
         user = session['user']

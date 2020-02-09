@@ -11,6 +11,7 @@ class DatabaseHome:
 
     def clean_b(self):
         self.userdb.delete_many({"username":"b"})
+        self.homie_post.delete_many({"username":"b"})
 
     def add_username(self, username):
         if self.userdb.find({"username":username, "loggedOn":True}).count() > 0:
@@ -69,7 +70,7 @@ class DatabaseHome:
         self.homie_post.insert_one(postInfo)
 
     def get_sorted_homie_post(self):
-        posts = self.homie_post.find({}).sort('postdate', ASCENDING)
+        posts = self.homie_post.find({}).sort('posted', DESCENDING)
         return posts
 
     def add_workout_post(self, workout_post):
@@ -106,5 +107,3 @@ class DatabaseHome:
     def get_all_tip_posts(self):
         posts = self.tip_post.find({}).sort("ratings", DESCENDING)
         return posts
-
-#hi
