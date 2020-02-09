@@ -33,7 +33,7 @@
             <div id = "menu_button">
                 <p><a href = "{{ url_for('sign_out') }}">Sign Out</a></p>
             </div>
-            <div id = "menu_button">
+            <div id="menu button">
                 <p><a href = "{{ url_for('login') }}">Login</a></p>
             </div>
         </div> <!-- End of top_menu_sect -->
@@ -41,7 +41,7 @@
     <div id = "greeting">
         {% if message %}
             {% if username %}
-                <h2>{{ message }} {{ username }}</h2>
+                <h2>{{ user }} {{ username }}</h2>
             {% else %}
                 <h2>{{ message }}</h2>
             {% endif %}

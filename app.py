@@ -22,18 +22,29 @@ def home():
 
     homie_lst = DB.get_sorted_homie_post()
 
-    return render_template('index.html', message="Welcome to Gym Homies, Homie", homieList=homie_lst)
+    if 'user' in session:
+        user = session['user']
+
+    return render_template('index.html',
+                           message="Welcome to Gym Homies, Homie!",
+                           homieList=homie_lst,
+                           user=user)
 
 
 @app.route('/MyProfile', methods=['GET', 'POST'])
 def my_profile():
-
-
     name = session['user']
-
     user = DB.find_user(name)
 
+    if request.method == 'POST':
+        level = request.form['level']
+        type = request.form['type']
+        pos = request.form['pos']
+        exp = request.form['exp']
 
+        user = User(name, level, [0], type, pos, exp)
+
+        DB.add_user(user)
     return render_template('profile.html', User=user)
 
 
