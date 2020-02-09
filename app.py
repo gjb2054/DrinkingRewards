@@ -1,6 +1,7 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, redirect, url_for
 
 app = Flask(__name__)
+app.secret_key = 'workout bros'
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -20,9 +21,6 @@ def tips():
 
 @app.route('/workouts', methods=['GET', 'POST'])
 def workouts():
-    if request.method == 'POST':
-
-
     return render_template('workouts.html')
 
 
@@ -33,8 +31,23 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    return render_template()
+    if request.method == 'POST':
 
+        username = request.form['username']
+        session['user'] = username
+
+        return redirect(url_for('home'))
+    return render_template("login.html")
+
+
+@app.route('/signout', methods=['GET', 'POST'])
+def sign_out():
+    if request.method == 'POST':
+        if 'user' in session:
+            session.pop('user')
+
+        return redirect(url_for("home"))
+    return render_template("signout.html")
 
 if __name__ == '__main__':
     app.run()
