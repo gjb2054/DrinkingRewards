@@ -35,7 +35,7 @@ def home():
 @app.route('/MyProfile', methods=['GET', 'POST'])
 def my_profile():
     name = session['user']
-    user = DB.find_user(name)
+    user = DB.add_username(name)
 
     if request.method == 'POST':
         level = request.form['level']
