@@ -14,10 +14,10 @@ body{
 
 .wrapper{
     position: absolute;
-    top: 50%;
+    top: 25%;
     left: 50%;
     transform: translate(-50%,-50%);
-    width: 450px;
+    width: 700px;
     display: flex;
     box-shadow: 0 1px 20px 0 rgba(69, 90, 100, 0.08);
 }
@@ -33,6 +33,7 @@ body{
 }
 
 .wrapper .left h4{
+    padding-top: 15px;
     margin-bottom: 10px;
 }
 .wrapper .left p{
@@ -43,7 +44,7 @@ body{
     width: 65%;
     border-top-left-radius: 5px;
     border-bottom-right-radius: 5px;
-    color: #fff;
+    background: #fff;
     padding: 30px 25px;
 }
 
@@ -60,10 +61,28 @@ body{
     letter-spacing: 5px;
 }
 .wrapper .right .info_data{
-    display: flex;
+
     justify-content: space-between;
 }
 
-.wrapper .right .info_data .info{
+.wrapper .right .info_data .data{
     width: 45%;
+}
+
+.wrapper .right .info_data .data h4{
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+
+.wrapper .right .info_data .data p{
+    font-size: 13px;
+    color: #919aa3;
+    margin-bottom: 10px;
+}
+
+.avatar {
+  vertical-align: middle;
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
 }

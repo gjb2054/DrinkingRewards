@@ -9,12 +9,17 @@
 <body>
     <div class="wrapper">
         <div class="left">
-
+            <img src="/static/avatar.png" alt="Avatar" class="avatar" width="60%" height="40%">
             <h4> {{ User.username }}</h4>
             <p>{{ User.experience }}</p>
+            <div class="data">
+                        <h4>Rating</h4>
+                        <p>{{ User.rating }}</p>
+                    </div>
         </div>
         <div class="right">
             <div class="info">
+                <ul>
                 <h3>Information</h3>
                 <div class="info_data">
                     <div class="data">
@@ -30,6 +35,7 @@
                         <p>{{ User.rating }}</p>
                     </div>
                 </div>
+            </ul>
             </div>
         </div>
 
