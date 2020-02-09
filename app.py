@@ -43,8 +43,12 @@ def tips():
 
         DB.add_tip_post(tip_entry)
 
-    tips_lst = DB.get_all_tip_posts()
-    return render_template('tips.html', tips=tips_lst)
+    tips_weight = DB.get_spec_tips("weight lifting")
+    tips_cardio = DB.get_spec_tips("Cardio")
+    tips_call = DB.get_spec_tips("Callisthenics")
+    tips_body = DB.get_spec_tips("Body Builder")
+
+    return render_template('tips.html', t_weights=tips_weight, t_cardio=tips_cardio, t_call=tips_call, t_body=tips_body)
 
 
 @app.route('/workouts')
