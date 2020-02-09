@@ -22,8 +22,8 @@ class DatabaseHome:
         self.userdb.insert_one(userInfo)
 
     def find_usernames(self):
-        usernames = self.userdb.find({}, {"username": 1, "_id": 0})
-        return usernames
+        user = self.userdb.find({}, {"username": 1, "_id": 0})
+        return user
 
     def find_user(self, username):
         user = self.userdb.find({"username":username})
