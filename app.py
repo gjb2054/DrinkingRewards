@@ -35,7 +35,6 @@ def home():
 @app.route('/MyProfile', methods=['GET', 'POST'])
 def my_profile():
     name = session['user']
-    user = DB.add_username(name)
 
     if request.method == 'POST':
         level = request.form['level']
@@ -78,21 +77,21 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':#hi
-        username = request.form['username']#hi
-        if DB.add_username(username):#hi
-            session['user'] = username#hi
-            return redirect(url_for('home'))#hi
+    if request.method == 'POST':
+        username = request.form['username']
+        if DB.add_username(username):
+            session['user'] = username
+            return redirect(url_for('home'))
         else:#hi
-            return render_template("login.html")#hi
-    return render_template("login.html")#hi
+            return render_template("login.html")
+    return render_template("login.html")
 
 
 @app.route('/signout', methods=['GET', 'POST'])
 def sign_out():
     if request.method == 'POST':
         if 'user' in session:
-            DB.sign_out(session['user'])#hi
+            DB.sign_out(session['user'])
             session.pop('user')
         else:
             return redirect(url_for('home'))
