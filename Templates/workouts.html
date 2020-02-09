@@ -3,8 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <link rel="stylesheet" type="text/css" href="Static/style.css">
 </head>
 <body>
+
+    <div id = "logo">
+        <h2>Gym Homies</h2>
+    </div>
+
+    <div id = "menu" class = "menu">
+        <!-- Could create a logo for the website, but for now we can just use text -->
+        <div id = "top_menu_sect" class = "top_menu_sect">
+            <!-- These will be the buttons used to go to each page of the website -->
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('tips') }}"/>Tips</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('workouts') }}"/>Workouts</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('about') }}"/>About</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('my_profile') }}"/>My Profile</p>
+            </div>
+        </div> <!-- End of top_menu_sect -->
+    </div><!-- End of menu -->
+
+    <div id = "left_side">
+        <div id = "sidebar">
+            <div id = "subnav">
+                 <button id="subnavbtn">Biceps<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">chest<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">Abs<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">triceps<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">Back<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">legs<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">forearms<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">Glutes<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">Calves<i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+            <div id = "subnav">
+                 <button id="subnavbtn">Biceps <i class="fa fa-caret-down"></i></button>
+                <div id="subnav-content">
+                  <a href="#company">Company</a>
+                  <a href="#team">Team</a>
+                  <a href="#careers">Careers</a>
+                </div><!-- end of subnav-content -->
+            </div><!-- end of subnabv -->
+        </div><!-- end of sidebar -->
+    </div><!-- end of left_side -->
+
+    <div>
+        <h4>Request a gym homie!</h4>
+        <form method="post" action="">
+           <textarea placeholder="Enter a message for the homies" rows="4" cols="50" name="message"></textarea>
+            <input type="submit" value="Submit">
+        </form>
+    </div>
 
 </body>
 </html>

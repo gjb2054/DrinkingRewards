@@ -3,17 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <title>Gym Homies</title>
-    <link rel="stylesheet" type="text/css" href="Static/style.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
 
     <div id = "logo">
         <h2>Gym Homies</h2>
+        <h2>Testing</h2>
     </div>
 
     <div id = "menu" class = "menu">
         <!-- Could create a logo for the website, but for now we can just use text -->
-        <div id = "top_menu_sect" class = "top_menu_sect">
+        <div id = "top_menu_sect">
             <!-- These will be the buttons used to go to each page of the website -->
             <div id = "menu_button">
                 <p><a href = "{{ url_for('tips') }}"/>Tips</p>
@@ -27,6 +28,44 @@
             <div id = "menu_button">
                 <p><a href = "{{ url_for('my_profile') }}"/>My Profile</p>
             </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('login') }}"/>Login</p>
+            </div>
+            <div id = "menu_button">
+                <p><a href = "{{ url_for('sign_out') }}"/>Sign Out</p>
+            </div>
+        </div> <!-- End of top_menu_sect -->
+    </div><!-- End of menu -->
+    <div>
+        {% if message %}
+            {% if username %}
+                <h1>{{ message }} {{ username }}</h1>
+            {% else %}
+                <h1>{{ message }}</h1>
+            {% endif %}
+        {% endif %}
+    </div>
+    <div id = "container_main">
+        <div id = "information_main_1">
+            <img src = "">
+            <p id = "rating"></p>
+            <p id = "level"></p>
+            <p id = "type">test</p>
+            <p id = "time"></p>
+        </div>
+        <div id = "information_main_2">
+            <img src = "">
+            <p id = "rating"></p>
+            <p id = "level"></p>
+            <p id = "type">test</p>
+            <p id = "time"></p>
+        </div>
+        <div id = "information_main_2">
+            <img src = "">
+            <p id = "rating"></p>
+            <p id = "level"></p>
+            <p id = "type">test</p>
+            <p id = "time"></p>
         </div>
     </div>
 </body>
