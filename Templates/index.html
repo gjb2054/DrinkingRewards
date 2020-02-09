@@ -49,7 +49,9 @@
     <div>
         {% if homieList %}
             {% for homies in homieList %}
-                <p>user= {{ homies.username }} msg={{ homies.post_str }} date={{ homies.postdate }}</p>
+                <div id = "homie_main">
+                    <p id = "testing">user: {{ homies.username }} msg:{{ homies.post_str }}</p>
+                </div>
             {% endfor %}
         {% endif %}
     </div>
