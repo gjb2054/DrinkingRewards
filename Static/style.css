@@ -131,3 +131,9 @@
 #sidebar:first-child{
 	margin-top: 15%;
 }
+#logo{
+	text-decoration: none;
+}
+#logo:link{
+	color: black;
+}

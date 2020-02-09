@@ -33,7 +33,7 @@
             <div id = "menu_button">
                 <p><a href = "{{ url_for('sign_out') }}">Sign Out</a></p>
             </div>
-            <div id="menu button">
+            <div id="menu_button">
                 <p><a href = "{{ url_for('login') }}">Login</a></p>
             </div>
         </div> <!-- End of top_menu_sect -->
@@ -50,11 +50,10 @@
 
     <div id = "homie_main_container">
         {% if homieList %}
-            {% for homies in homieList %}
+            {% for i in range(0, 5) %}
                 <div id = "inner_homie">
-                    <p id = "homie_info">user: {{ homies.username }}</p>
-                    <p id = "homie_info">msg:{{ homies.post_str }}</p>
-                    <p id = "homie_info">Body Part{{ homies.body_part }}</p>
+                    <p id = "homie_info">user: {{ homieList[i].username }}</p>
+                    <p id = "homie_info">msg:{{ homieList[i].post_str }}</p>
                 </div>
             {% endfor %}
         {% endif %}
@@ -67,6 +66,13 @@
             <input type="submit" value="Submit">
         </form>
     </div>
+
+    <script>
+        function accept(){
+            var x = document.getElementById("inner_homie");
+            x.style.visibility = "hidden";
+        }
+    </script>
 
 </body>
 </html>
