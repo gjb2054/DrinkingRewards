@@ -111,3 +111,23 @@
 	-ms-filter: blur(5px);
 	filter: blur(5px);
 }
+
+/* TIPS PAGE */
+#left_side{
+	grid-area: left;
+}
+#right_side{
+	grid-area: right;
+}
+#container{
+	display: grid;
+	grid-template-columns: 100% 100%;
+	grid-template-areas: "left right";
+}
+#subnavbtn{
+	width: 100%;
+	margin-bottom: 10%;
+}
+#sidebar:first-child{
+	margin-top: 15%;
+}
