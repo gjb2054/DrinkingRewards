@@ -2,9 +2,12 @@ from flask import Flask, render_template, request, session, url_for, redirect
 from user import User
 from database_home import DatabaseHome
 from homie_post import HomiePost
+from tip_post import TipPost
 
 app = Flask(__name__)
 app.secret_key = 'workout bros'
+
+DB = DatabaseHome()
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -24,6 +27,17 @@ def my_profile():
 
 @app.route('/tips', methods=['GET', 'POST'])
 def tips():
+
+    if request.method == 'POST':
+        tip = request.form['tip']
+        option = request.form['options']
+        user = session['user']
+
+        tip_entry = TipPost(tip, user, [0], option)
+
+        DB.add_tip_post(tip_entry)
+
+
     return render_template('tips.html')
 
 

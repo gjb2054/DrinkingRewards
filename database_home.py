@@ -60,7 +60,8 @@ class DatabaseHome:
             "username": tip_post.username,
             "post_str": tip_post.post_str,
             "ratings": tip_post.ratings,
-            "rating": tip_post.rating
+            "rating": tip_post.rating,
+            "option": tip_post.option
         }
         self.tip_post().insert_one(postInfo)
 
