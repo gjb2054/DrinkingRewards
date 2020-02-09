@@ -37,3 +37,6 @@ class User:
 
     def set_experience(self, experience):
         self.experience = experience
+
+    def to_json(self):
+        return "{\"username\":\""+self.username+"\",\"rating\":\""+self.rating+"\",\"level\":\""+self.level+"\",\"position\":\""+self.position+"\",\"experience\":\""+self.experience+"\",\"workout_type\":\""+self.workout_type+"\"}"
