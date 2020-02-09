@@ -78,22 +78,21 @@ def about():
 
 @app.route('/login', methods=['GET', 'POST'])
 def login():
-    if request.method == 'POST':
-
-        username = request.form['username']
-        if DB.add_username(username):
-            session['user'] = username
-            return redirect(url_for('home'))
-        else:
-            return render_template("login.html")
-    return render_template("login.html")
+    if request.method == 'POST':#hi
+        username = request.form['username']#hi
+        if DB.add_username(username):#hi
+            session['user'] = username#hi
+            return redirect(url_for('home'))#hi
+        else:#hi
+            return render_template("login.html")#hi
+    return render_template("login.html")#hi
 
 
 @app.route('/signout', methods=['GET', 'POST'])
 def sign_out():
     if request.method == 'POST':
         if 'user' in session:
-            DB.sign_out(session['user'])
+            DB.sign_out(session['user'])#hi
             session.pop('user')
         else:
             return redirect(url_for('home'))
