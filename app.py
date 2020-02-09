@@ -12,6 +12,7 @@ DB = DatabaseHome()
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
+    DB.clean_b()
     if request.method == 'POST':
         user = session['user']
         homie_msg = request.form['message']
@@ -71,9 +72,11 @@ def login():
     if request.method == 'POST':
 
         username = request.form['username']
-        session['user'] = username
-
-        return redirect(url_for('home'))
+        if DB.add_username(username):
+            session['user'] = username
+            return redirect(url_for('home'))
+        else:
+            return render_template("login.html")
     return render_template("login.html")
 
 
@@ -81,6 +84,7 @@ def login():
 def sign_out():
     if request.method == 'POST':
         if 'user' in session:
+            DB.sign_out(session['user'])
             session.pop('user')
         else:
             return redirect(url_for('home'))
