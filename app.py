@@ -43,9 +43,7 @@ def my_profile():
         pos = request.form['pos']
         exp = request.form['exp']
 
-        user = User(name, level, [0], type, pos, exp)
-
-        DB.add_user(user)
+        DB.edit_user(user, 0, [0], exp, pos, level, type)
     return render_template('profile.html', User=user)
 
 
