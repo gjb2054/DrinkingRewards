@@ -1,4 +1,4 @@
-from pymongo import MongoClient, DESCENDING
+from pymongo import MongoClient, DESCENDING, ASCENDING
 
 
 class DatabaseHome:
@@ -34,7 +34,7 @@ class DatabaseHome:
         self.homie_post.insert_one(postInfo)
 
     def get_sorted_homie_post(self):
-        posts = self.homie_post.find({}).sort('postdate', DESCENDING)
+        posts = self.homie_post.find({}).sort('postdate', ASCENDING)
         return posts
 
     def add_workout_post(self, workout_post):

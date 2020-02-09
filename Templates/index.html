@@ -47,6 +47,14 @@
     </div>
 
     <div>
+        {% if homieList %}
+            {% for homies in homieList %}
+                <p>user= {{ homies.username }} msg={{ homies.post_str }} date={{ homies.postdate }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+
+    <div>
         <h4>Request a gym homie!</h4>
         <form method="post" action="">
            <textarea placeholder="Enter a message for the homies" rows="4" cols="50" name="message"></textarea>
