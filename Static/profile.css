@@ -14,7 +14,7 @@ body{
 
 .wrapper{
     position: absolute;
-    top: 25%;
+    top: 35%;
     left: 50%;
     transform: translate(-50%,-50%);
     width: 700px;
@@ -97,7 +97,7 @@ body{
 	border:1px solid #dcdcdc;
 	display:inline-block;
 	cursor:pointer;
-	color:#666666;
+	color:#353c4e;
 	font-family:Courier New;
 	font-size:12px;
 	font-weight:bold;
