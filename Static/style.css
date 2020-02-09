@@ -1,0 +1,10 @@
+* {
+    padding: 0px;
+    margin: 0px;
+}
+
+#menu{
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+}
