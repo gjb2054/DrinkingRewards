@@ -5,5 +5,5 @@ class Post:
 
     def __init__(self, post_str, username):
         self.post_str = post_str
-        self.user = username
+        self.username = username
         self.postdate = datetime.now()

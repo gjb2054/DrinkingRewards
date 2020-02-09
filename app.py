@@ -1,5 +1,7 @@
+from flask import Flask, render_template, request, session, url_for, redirect
 from user import User
-from flask import Flask, render_template, request, session, redirect, url_for
+from database_home import DatabaseHome
+from homie_post import HomiePost
 
 app = Flask(__name__)
 app.secret_key = 'workout bros'
@@ -12,9 +14,12 @@ def home():
 
 @app.route('/MyProfile')
 def my_profile():
-    user = User('a', 'b', 'c','d', 'e','f').to_json()
-    print(user)
-    return render_template('profile.html', username="user", rating="1", experience="1",level="1",position="2")
+    databaseHome = DatabaseHome()
+    user = User('a', 'b', [5,4,3], 'd', 'e', 'f')
+    databaseHome.add_user(user)
+    homiePost = HomiePost("hello", user.username)
+    databaseHome.add_homie_post(homiePost)
+    return render_template('profile.html', User=user)
 
 
 @app.route('/tips', methods=['GET', 'POST'])

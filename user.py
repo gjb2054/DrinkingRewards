@@ -5,13 +5,13 @@ class User:
     def __init__(self, level, username, ratings, workout_type, position, experience):
         self.level = level
         self.ratings = ratings
-        self.rating = "0"
+        self.rating = 0
         count = 0
-        #for r in ratings:
-            #self.rating += r
-            #count += 1
-        #if count != 0:
-            #self.rating = self.rating/count
+        for r in ratings:
+            self.rating += float(r)
+            count += 1
+        if count != 0:
+            self.rating = f"{(self.rating/count):.2f}"
         self.username = username
         self.workout_type = workout_type
         self.position = position
@@ -25,9 +25,9 @@ class User:
         rate = 0
         count = 0
         for r in self.ratings:
-            rate += r
+            rate += float(r)
             count += 1
-        self.rating = rate/count
+        self.rating = f"{(rate/count):.2f}"
 
     def set_username(self, username):
         self.username = username
@@ -37,6 +37,3 @@ class User:
 
     def set_experience(self, experience):
         self.experience = experience
-
-    def to_json(self):
-        return "{\"username\":\""+self.username+"\",\"rating\":\""+self.rating+"\",\"level\":\""+self.level+"\",\"position\":\""+self.position+"\",\"experience\":\""+self.experience+"\",\"workout_type\":\""+self.workout_type+"\"}"
