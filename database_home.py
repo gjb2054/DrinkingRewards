@@ -45,10 +45,10 @@ class DatabaseHome:
             "ratings": workout_post.ratings,
             "rating": workout_post.rating
         }
-        self.workout_post().insert_one(postInfo)
+        self.workout_post.insert_one(postInfo)
 
     def get_body_workout_post(self, body_part):
-        posts = self.workout_post().find({body_part}).sort("rating", DESCENDING)
+        posts = self.workout_post.find({body_part}).sort("rating", DESCENDING)
         return posts
 
     def get_all_body_workout_post(self):
