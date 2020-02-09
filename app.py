@@ -15,8 +15,12 @@ def my_profile():
 
 @app.route('/tips')
 def tips():
-    return render_template('tips')
+    return render_template('tips.html')
 
+
+@app.route('/workouts')
+def workouts():
+    return render_template('workouts.html')
 
 
 if __name__ == '__main__':
