@@ -29,22 +29,25 @@
             </div>
         </div> <!-- End of top_menu_sect -->
     </div><!-- End of menu -->
+    <div id = "container">
+        <div id = "left_side">
+            <div id = "sidebar">
+                <button id="subnavbtn">
+                    Weightlighting
+                </button>
+                <button id="subnavbtn">Body Building<i class="fa fa-caret-down"></i></button>
+                <button id="subnavbtn">Cardio<i class="fa fa-caret-down"></i></button>
+                <button id="subnavbtn">Callisthenics<i class="fa fa-caret-down"></i></button>
+            </div><!-- end of sidebar -->
+        </div> <!-- end of left_side -->
 
-    <div id = "left_side">
-        <div id = "sidebar">
-            <button id="subnavbtn">Weightlighting<i class="fa fa-caret-down"></i></button>
-            <button id="subnavbtn">Body Building<i class="fa fa-caret-down"></i></button>
-            <button id="subnavbtn">Cardio<i class="fa fa-caret-down"></i></button>
-            <button id="subnavbtn">Callisthenics<i class="fa fa-caret-down"></i></button>
-        </div><!-- end of sidebar -->
-    </div> <!-- end of left_side -->
-
-    <div>
-        {% if tips %}
-            {% for tip in tips %}
-                <p>Tips</p>
-            {% endfor %}
-        {% endif %}
+        <div id = "right_side">
+            {% if t_weights %}
+                {% for tip in t_weights %}
+                    <p>Testing: {{ tip.option }}</p>
+                {% endfor %}
+            {% endif %}
+        </div>
     </div>
 
     <div>
