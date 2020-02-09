@@ -2,13 +2,32 @@
 
 class User:
 
-    def __init__(self, level, username, rating, workout_type, position, experience):
+    def __init__(self, level, username, ratings, workout_type, position, experience):
         self.level = level
-        self.rating = rating
+        self.ratings = ratings
+        self.rating = 0
+        count = 0
+        for r in ratings:
+            self.rating += r
+            count += 1
+        if count != 0:
+            self.rating = self.rating/count
+
         self.username = username
         self.workout_type = workout_type
         self.position = position
         self.experience = experience
 
+
     def change_workout(self, workout):
         self.workout_type = workout
+
+
+    def get_rated(self, rating):
+        self.ratings.add(rating)
+        rate = 0
+        count = 0
+        for r in self.ratings:
+            rate += r
+            count += 1
+        self.rating = rate/count
