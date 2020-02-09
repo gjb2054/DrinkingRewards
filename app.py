@@ -32,7 +32,7 @@ def tips():
         tip = request.form['tip']
         option = request.form['options']
         user = session['user']
-
+        print
         tip_entry = TipPost(tip, user, [0], option)
 
         DB.add_tip_post(tip_entry)
